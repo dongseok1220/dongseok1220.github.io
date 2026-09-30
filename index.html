@@ -1,1 +1,506 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>React App</title><script defer="defer" src="/static/js/main.4192e3c9.js"></script><link href="/static/css/main.b6c138cf.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"/></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dongseok Lee — researcher working on large language models, inference-time methods, post-training, knowledge distillation, and decoding." />
+  <meta name="author" content="Dongseok Lee" />
+  <meta name="theme-color" content="#fbfbfa" />
+  <title>Dongseok Lee</title>
+  <style>
+    :root {
+      --bg: #fbfbfa;
+      --surface: #ffffff;
+      --text: #171717;
+      --muted: #676767;
+      --line: #e7e5e1;
+      --accent: #2458a6;
+      --accent-soft: #eef4fc;
+      --max-width: 900px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.68;
+      -webkit-font-smoothing: antialiased;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      text-underline-offset: 3px;
+    }
+    a:hover { text-decoration: underline; }
+    a:focus-visible {
+      outline: 3px solid rgba(36, 88, 166, 0.25);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+    .shell {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin: 0 auto;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(251, 251, 250, 0.94);
+    }
+    .nav {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 14px;
+    }
+    .nav-links a { color: var(--muted); }
+    main { padding-bottom: 80px; }
+    .hero {
+      padding: 82px 0 54px;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 8vw, 68px);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      font-weight: 750;
+    }
+    .hero-subtitle {
+      margin: 18px 0 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: clamp(18px, 2.5vw, 22px);
+      line-height: 1.55;
+    }
+    .hero-links {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      font-size: 15px;
+    }
+    .hero-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+    }
+    section {
+      padding: 52px 0;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: 28px;
+    }
+    section:last-of-type { border-bottom: 0; }
+    h2 {
+      margin: 0 0 26px;
+      font-size: 24px;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+    }
+    .about-copy {
+      max-width: 790px;
+      margin: 0;
+      font-size: 17px;
+    }
+    .about-copy + .about-copy { margin-top: 12px; }
+    .research-tags {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tag {
+      padding: 5px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: #4a4a4a;
+      font-size: 13px;
+    }
+    .publication-list, .timeline, .compact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .publication {
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+    }
+    .publication:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+    .pub-topline {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .pub-title {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.45;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .pub-title a { color: var(--text); }
+    .venue {
+      flex: 0 0 auto;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .authors {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .pub-meta {
+      margin: 7px 0 0;
+      color: #454545;
+      font-size: 14px;
+    }
+    .pub-links {
+      margin-top: 9px;
+      display: flex;
+      gap: 14px;
+      font-size: 13px;
+      font-weight: 650;
+    }
+    .grid-two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+    .subheading {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+    .timeline-item {
+      position: relative;
+      padding: 0 0 24px 20px;
+      border-left: 1px solid var(--line);
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -4px;
+      top: 8px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .item-title {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 700;
+    }
+    .item-subtitle, .item-date {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .item-description {
+      margin: 6px 0 0;
+      color: #444;
+      font-size: 14px;
+    }
+    .compact-list li {
+      padding: 13px 0;
+      border-top: 1px solid var(--line);
+    }
+    .compact-list li:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+    .compact-title {
+      display: block;
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .compact-meta {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    footer {
+      padding: 30px 0 44px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 720px) {
+      .shell { width: min(calc(100% - 28px), var(--max-width)); }
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px 0;
+        gap: 10px;
+      }
+      .nav-links { gap: 10px 15px; }
+      .hero { padding: 56px 0 42px; }
+      section { padding: 42px 0; }
+      .grid-two {
+        grid-template-columns: 1fr;
+        gap: 42px;
+      }
+      .pub-topline {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="shell nav">
+      <a class="brand" href="#top">Dongseok Lee</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="shell">
+      <div class="hero">
+        <p class="eyebrow">Large Language Models</p>
+        <h1>Dongseok Lee</h1>
+        <p class="hero-subtitle">
+          I work on improving the capabilities and reliability of large language models,
+          with a focus on inference-time methods, post-training, knowledge distillation,
+          and decoding.
+        </p>
+        <div class="hero-links">
+          <a href="mailto:ehdtjr1220@yonsei.ac.kr">Email ↗</a>
+          <a href="https://github.com/dongseok1220" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://ml3.yonsei.ac.kr/" target="_blank" rel="noreferrer">ML3 Lab ↗</a>
+        </div>
+      </div>
+
+      <section id="about">
+        <h2>About</h2>
+        <p class="about-copy">
+          I am a research student at the Machine and Language Learning Lab (ML3) at Yonsei University,
+          advised by Prof. Jaehyung Kim. My recent research explores how language models can make better
+          use of their own predictions and internal signals at inference time and during post-training.
+        </p>
+        <p class="about-copy">
+          I am particularly interested in test-time scaling, self- and knowledge-distillation,
+          reliable response selection, and efficient decoding methods for language models.
+        </p>
+        <div class="research-tags" aria-label="Research interests">
+          <span class="tag">Test-time scaling</span>
+          <span class="tag">Knowledge distillation</span>
+          <span class="tag">Post-training</span>
+          <span class="tag">Decoding</span>
+          <span class="tag">LLM reliability</span>
+        </div>
+      </section>
+
+      <section id="publications">
+        <h2>Selected Publications</h2>
+        <ol class="publication-list">
+          <li class="publication">
+            <div class="pub-topline">
+              <h3 class="pub-title">
+                <a href="https://arxiv.org/abs/2506.17251" target="_blank" rel="noreferrer">
+                  Training-free LLM Verification via Recycling Few-shot Examples
+                </a>
+              </h3>
+              <span class="venue">EMNLP 2026 · Main</span>
+            </div>
+            <p class="authors"><strong>Dongseok Lee</strong>, Jimyung Hong, Dongyoung Kim, Jaehyung Kim</p>
+            <p class="pub-meta">Also appeared at ICML 2025 Workshop ES-FoMo-III · Spotlight Presentation (14/146, 9.59%).</p>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2506.17251" target="_blank" rel="noreferrer">Paper</a>
+              <a href="https://github.com/dongseok1220/Referi" target="_blank" rel="noreferrer">Code</a>
+            </div>
+          </li>
+
+          <li class="publication">
+            <div class="pub-topline">
+              <h3 class="pub-title">
+                <a href="https://arxiv.org/abs/2605.29888" target="_blank" rel="noreferrer">
+                  LaRA: Layer-wise Representation Analysis for Detecting Data Contamination in RL Post-Training
+                </a>
+              </h3>
+              <span class="venue">EMNLP 2026 · Findings</span>
+            </div>
+            <p class="authors">Minju Gwak, Minseo Kwak, <strong>Dongseok Lee</strong>, Guijin Son, Alan Ritter, Jaehyung Kim</p>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2605.29888" target="_blank" rel="noreferrer">Paper</a>
+            </div>
+          </li>
+
+          <li class="publication">
+            <div class="pub-topline">
+              <h3 class="pub-title">
+                <a href="https://arxiv.org/abs/2608.11847" target="_blank" rel="noreferrer">
+                  LookBack: Where and How to Score LVLM Responses via Visual Reference Usage
+                </a>
+              </h3>
+              <span class="venue">EMNLP 2026 · Findings</span>
+            </div>
+            <p class="authors">Beomsik Cho*, Jinhyeong Kim*, <strong>Dongseok Lee</strong>, Jaehyung Kim</p>
+            <p class="pub-meta">* Equal contribution.</p>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2608.11847" target="_blank" rel="noreferrer">Paper</a>
+              <a href="https://github.com/bscho333/LookBack" target="_blank" rel="noreferrer">Code</a>
+            </div>
+          </li>
+
+          <li class="publication">
+            <div class="pub-topline">
+              <h3 class="pub-title">
+                <a href="https://arxiv.org/abs/2604.10261" target="_blank" rel="noreferrer">
+                  The Amazing Agent Race: Strong Tool Users, Weak Navigators
+                </a>
+              </h3>
+              <span class="venue">Preprint · 2026</span>
+            </div>
+            <p class="authors">Zae Myung Kim, <strong>Dongseok Lee</strong>, Jaehyung Kim, Vipul Raheja, Dongyeop Kang</p>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2604.10261" target="_blank" rel="noreferrer">Paper</a>
+              <a href="https://minnesotanlp.github.io/the-amazing-agent-race" target="_blank" rel="noreferrer">Project</a>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="experience">
+        <h2>Experience & Projects</h2>
+        <div class="grid-two">
+          <div>
+            <p class="subheading">Research Experience</p>
+            <ol class="timeline">
+              <li class="timeline-item">
+                <p class="item-title">Machine and Language Learning Lab (ML3), Yonsei University</p>
+                <p class="item-subtitle">Research Student · Advisor: Prof. Jaehyung Kim</p>
+                <p class="item-date">Mar 2025 — Present</p>
+              </li>
+              <li class="timeline-item">
+                <p class="item-title">Qraft Technologies</p>
+                <p class="item-subtitle">Research Intern · AI Trading Solution</p>
+                <p class="item-date">Jul 2024 — Sep 2024</p>
+              </li>
+              <li class="timeline-item">
+                <p class="item-title">Sogang University</p>
+                <p class="item-subtitle">Research Student · Advisor: Prof. HyukJun Lee</p>
+                <p class="item-date">Mar 2024 — Jun 2024</p>
+              </li>
+              <li class="timeline-item">
+                <p class="item-title">Korea Institute of Science and Technology (KIST)</p>
+                <p class="item-subtitle">Research Student · Sensor System Research Center</p>
+                <p class="item-date">Dec 2023 — Feb 2024</p>
+              </li>
+            </ol>
+          </div>
+
+          <div>
+            <p class="subheading">Industry-Academia Projects</p>
+            <ol class="timeline">
+              <li class="timeline-item">
+                <p class="item-title">LG Electronics</p>
+                <p class="item-date">Mar 2026 — Present</p>
+                <p class="item-description">Scenario-Based Virtual LLM Test User Simulation for Intent Analysis.</p>
+              </li>
+              <li class="timeline-item">
+                <p class="item-title">LG Electronics</p>
+                <p class="item-date">Sep 2025 — Dec 2025</p>
+                <p class="item-description">Automated Evaluation and Validation of LLM-based Intent Analysis.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <div class="grid-two">
+          <div>
+            <p class="subheading">Degrees</p>
+            <ul class="compact-list">
+              <li>
+                <span class="compact-title">Yonsei University</span>
+                <span class="compact-meta">M.S. in Artificial Intelligence · Sep 2025 — Aug 2026</span>
+                <span class="compact-meta">Advisor: Prof. Jaehyung Kim</span>
+              </li>
+              <li>
+                <span class="compact-title">Sogang University</span>
+                <span class="compact-meta">B.S. in Computer Science and Engineering · Mar 2019 — Feb 2025</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="subheading">Honors, Service & Teaching</p>
+            <ul class="compact-list">
+              <li>
+                <span class="compact-title">2nd Place · SmartFactory Anomaly Detection Competition</span>
+                <span class="compact-meta">LG AI Research · Mar 2023</span>
+              </li>
+              <li>
+                <span class="compact-title">Conference Reviewer</span>
+                <span class="compact-meta">International Conference on Learning Representations (ICLR) 2027</span>
+              </li>
+              <li>
+                <span class="compact-title">Teaching Assistant · Deep Neural Networks (CAS 3201)</span>
+                <span class="compact-meta">Yonsei University · Fall 2025</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="shell footer-row">
+      <span>© 2026 Dongseok Lee</span>
+      <span>Last updated September 2026</span>
+    </div>
+  </footer>
+</body>
+</html>
