@@ -1,1 +1,0 @@
-# sgu20191619.github.io
