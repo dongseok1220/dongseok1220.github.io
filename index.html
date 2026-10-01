@@ -69,7 +69,7 @@
     .nav-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 18px;
       font-size: 14px;
     }
 
@@ -96,8 +96,7 @@
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: 12px;
-      background:
-        linear-gradient(145deg, #f1f0ed, #e8e6e1);
+      background: linear-gradient(145deg, #f1f0ed, #e8e6e1);
     }
 
     .portrait-placeholder {
@@ -140,32 +139,30 @@
     .role {
       margin: 12px 0 0;
       color: var(--muted);
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 500;
     }
 
     .hero-about {
       max-width: 730px;
-      margin: 22px 0 0;
-      font-size: 17px;
-      line-height: 1.68;
+      margin: 20px 0 0;
+      font-size: 16px;
+      line-height: 1.7;
     }
 
-    .hero-about + .hero-about {
-      margin-top: 9px;
-    }
+    .hero-about + .hero-about { margin-top: 8px; }
 
     .hero-links {
-      margin-top: 22px;
+      margin-top: 20px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px 18px;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 650;
     }
 
     .research-tags {
-      margin-top: 22px;
+      margin-top: 20px;
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
@@ -182,8 +179,8 @@
     }
 
     .affiliations {
-      margin-top: 27px;
-      padding-top: 20px;
+      margin-top: 25px;
+      padding-top: 18px;
       border-top: 1px solid var(--line);
       display: flex;
       align-items: center;
@@ -197,19 +194,19 @@
     }
 
     .yonsei-logo {
-      width: 48px;
-      height: 48px;
+      width: 46px;
+      height: 46px;
       object-fit: contain;
     }
 
     .ml3-logo {
-      width: 126px;
-      max-height: 45px;
+      width: 122px;
+      max-height: 43px;
       object-fit: contain;
     }
 
     section {
-      padding: 50px 0;
+      padding: 46px 0;
       border-bottom: 1px solid var(--line);
       scroll-margin-top: 28px;
     }
@@ -217,26 +214,43 @@
     section:last-of-type { border-bottom: 0; }
 
     h2 {
-      margin: 0 0 25px;
+      margin: 0 0 24px;
       font-size: 25px;
       line-height: 1.25;
       letter-spacing: -0.025em;
     }
 
+    .news-list,
     .publication-list,
-    .background-list,
-    .service-list {
+    .entry-list {
       list-style: none;
       padding: 0;
       margin: 0;
     }
 
-    .publication {
-      padding: 22px 0;
+    .news-item {
+      display: grid;
+      grid-template-columns: 86px minmax(0, 1fr);
+      gap: 12px;
+      padding: 8px 0;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .news-date {
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .publication,
+    .entry-item {
+      padding: 20px 0;
       border-top: 1px solid var(--line);
     }
 
-    .publication:first-child {
+    .publication:first-child,
+    .entry-item:first-child {
       padding-top: 0;
       border-top: 0;
     }
@@ -248,11 +262,12 @@
       gap: 18px;
     }
 
-    .pub-title {
+    .pub-title,
+    .entry-title {
       margin: 0;
-      font-size: 17px;
+      font-size: 16px;
       line-height: 1.45;
-      font-weight: 720;
+      font-weight: 700;
       letter-spacing: -0.01em;
     }
 
@@ -266,17 +281,22 @@
       white-space: nowrap;
     }
 
-    .authors {
-      margin: 7px 0 0;
-      color: var(--muted);
+    .authors,
+    .pub-meta,
+    .entry-meta,
+    .entry-date,
+    .entry-description {
+      margin: 5px 0 0;
       font-size: 14px;
+      line-height: 1.5;
     }
 
-    .pub-meta {
-      margin: 6px 0 0;
-      color: #444;
-      font-size: 14px;
-    }
+    .authors,
+    .entry-meta,
+    .entry-date { color: var(--muted); }
+
+    .pub-meta,
+    .entry-description { color: #444; }
 
     .pub-links {
       margin-top: 8px;
@@ -287,81 +307,16 @@
       font-weight: 650;
     }
 
-    .background-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 42px;
-      align-items: start;
-    }
-
-    .column-heading {
-      margin: 0 0 17px;
-      color: var(--text);
-      font-size: 17px;
-      font-weight: 740;
-      letter-spacing: -0.01em;
-    }
-
-    .background-item {
-      padding: 14px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .background-item:first-child {
-      padding-top: 0;
-      border-top: 0;
-    }
-
-    .item-title {
-      margin: 0;
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 1.45;
-    }
-
-    .item-meta,
-    .item-date,
-    .item-description {
-      margin: 3px 0 0;
-      font-size: 13px;
-      line-height: 1.48;
-    }
-
-    .item-meta,
-    .item-date { color: var(--muted); }
-
-    .item-description { color: #444; }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
-
-    .service-card {
-      min-width: 0;
-    }
-
-    .service-kicker {
-      margin: 0 0 7px;
+    .service-label {
+      display: inline-block;
+      min-width: 70px;
+      margin-right: 8px;
       color: var(--soft-muted);
       font-size: 11px;
       font-weight: 750;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.07em;
       text-transform: uppercase;
-    }
-
-    .service-title {
-      margin: 0;
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 1.45;
-    }
-
-    .service-meta {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 13px;
+      vertical-align: 1px;
     }
 
     footer {
@@ -384,10 +339,6 @@
       }
 
       .portrait { width: 170px; }
-
-      .background-grid {
-        grid-template-columns: 1fr;
-      }
     }
 
     @media (max-width: 640px) {
@@ -402,7 +353,7 @@
         gap: 8px;
       }
 
-      .nav-links { gap: 10px 15px; }
+      .nav-links { gap: 9px 14px; }
 
       .hero { padding: 46px 0 40px; }
 
@@ -411,20 +362,17 @@
         gap: 28px;
       }
 
-      .portrait {
-        width: 150px;
-      }
+      .portrait { width: 150px; }
 
       h1 {
         font-size: clamp(36px, 12vw, 48px);
       }
 
-      section { padding: 40px 0; }
+      section { padding: 39px 0; }
 
-      .background-grid,
-      .service-grid {
+      .news-item {
         grid-template-columns: 1fr;
-        gap: 34px;
+        gap: 1px;
       }
 
       .pub-topline {
@@ -441,9 +389,11 @@
     <div class="shell nav">
       <a class="brand" href="#top">Dongseok Lee</a>
       <nav class="nav-links" aria-label="Main navigation">
+        <a href="#news">News</a>
         <a href="#publications">Publications</a>
-        <a href="#background">Background</a>
-        <a href="#service">Service</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
       </nav>
     </div>
   </header>
@@ -502,6 +452,25 @@
           </div>
         </div>
       </div>
+
+      <section id="news">
+        <h2>News</h2>
+        <ul class="news-list">
+          <li class="news-item">
+            <span class="news-date">2026</span>
+            <span>
+              Three papers accepted to <strong>EMNLP 2026</strong>:
+              <a href="https://dongseok1220.github.io/Referi/" target="_blank" rel="noreferrer">ReFeri</a> (Main),
+              <a href="https://arxiv.org/abs/2605.29888" target="_blank" rel="noreferrer">LaRA</a> (Findings), and
+              <a href="https://arxiv.org/abs/2608.11847" target="_blank" rel="noreferrer">LookBack</a> (Findings).
+            </span>
+          </li>
+          <li class="news-item">
+            <span class="news-date">2025</span>
+            <span>ReFeri was selected for a spotlight presentation at the ICML 2025 Workshop ES-FoMo-III.</span>
+          </li>
+        </ul>
+      </section>
 
       <section id="publications">
         <h2>Selected Publications</h2>
@@ -574,99 +543,87 @@
         </ol>
       </section>
 
-      <section id="background">
-        <h2>Background</h2>
+      <section id="experience">
+        <h2>Experience</h2>
+        <ul class="entry-list">
+          <li class="entry-item">
+            <p class="entry-title">Machine and Language Learning Lab (ML3), Yonsei University</p>
+            <p class="entry-meta">Research Student · Advisor: Prof. Jaehyung Kim</p>
+            <p class="entry-date">Oct 2024 — Present</p>
+          </li>
 
-        <div class="background-grid">
-          <div>
-            <h3 class="column-heading">Experience</h3>
-            <ul class="background-list">
-              <li class="background-item">
-                <p class="item-title">Machine and Language Learning Lab (ML3)</p>
-                <p class="item-meta">Yonsei University · Research Student</p>
-                <p class="item-meta">Advisor: Prof. Jaehyung Kim</p>
-                <p class="item-date">Oct 2024 — Present</p>
-              </li>
+          <li class="entry-item">
+            <p class="entry-title">Qraft Technologies</p>
+            <p class="entry-meta">Research Intern · AI Trading Solution</p>
+            <p class="entry-date">Jul 2024 — Sep 2024</p>
+          </li>
 
-              <li class="background-item">
-                <p class="item-title">Qraft Technologies</p>
-                <p class="item-meta">Research Intern · AI Trading Solution</p>
-                <p class="item-date">Jul 2024 — Sep 2024</p>
-              </li>
+          <li class="entry-item">
+            <p class="entry-title">Sogang University</p>
+            <p class="entry-meta">Research Student · Advisor: Prof. HyukJun Lee</p>
+            <p class="entry-date">Mar 2024 — Jun 2024</p>
+          </li>
 
-              <li class="background-item">
-                <p class="item-title">Sogang University</p>
-                <p class="item-meta">Research Student · Advisor: Prof. HyukJun Lee</p>
-                <p class="item-date">Mar 2024 — Jun 2024</p>
-              </li>
+          <li class="entry-item">
+            <p class="entry-title">Korea Institute of Science and Technology (KIST)</p>
+            <p class="entry-meta">Research Student · Sensor System Research Center</p>
+            <p class="entry-date">Dec 2023 — Feb 2024</p>
+          </li>
+        </ul>
+      </section>
 
-              <li class="background-item">
-                <p class="item-title">Korea Institute of Science and Technology (KIST)</p>
-                <p class="item-meta">Research Student · Sensor System Research Center</p>
-                <p class="item-date">Dec 2023 — Feb 2024</p>
-              </li>
-            </ul>
-          </div>
+      <section id="projects">
+        <h2>Projects</h2>
+        <ul class="entry-list">
+          <li class="entry-item">
+            <p class="entry-title">LG Electronics</p>
+            <p class="entry-date">Mar 2026 — Present</p>
+            <p class="entry-description">Scenario-Based Virtual LLM Test User Simulation for Intent Analysis.</p>
+          </li>
 
-          <div>
-            <h3 class="column-heading">Projects</h3>
-            <ul class="background-list">
-              <li class="background-item">
-                <p class="item-title">LG Electronics</p>
-                <p class="item-date">Mar 2026 — Present</p>
-                <p class="item-description">Scenario-Based Virtual LLM Test User Simulation for Intent Analysis.</p>
-              </li>
+          <li class="entry-item">
+            <p class="entry-title">LG Electronics</p>
+            <p class="entry-date">Sep 2025 — Dec 2025</p>
+            <p class="entry-description">Automated Evaluation and Validation of LLM-based Intent Analysis.</p>
+          </li>
+        </ul>
+      </section>
 
-              <li class="background-item">
-                <p class="item-title">LG Electronics</p>
-                <p class="item-date">Sep 2025 — Dec 2025</p>
-                <p class="item-description">Automated Evaluation and Validation of LLM-based Intent Analysis.</p>
-              </li>
-            </ul>
-          </div>
+      <section id="education">
+        <h2>Education</h2>
+        <ul class="entry-list">
+          <li class="entry-item">
+            <p class="entry-title">Yonsei University</p>
+            <p class="entry-meta">M.S. in Artificial Intelligence · Advisor: Prof. Jaehyung Kim</p>
+            <p class="entry-date">Sep 2025 — Aug 2026</p>
+          </li>
 
-          <div class="education-column">
-            <h3 class="column-heading">Education</h3>
-            <ul class="background-list">
-              <li class="background-item">
-                <p class="item-title">Yonsei University</p>
-                <p class="item-meta">M.S. in Artificial Intelligence</p>
-                <p class="item-meta">Advisor: Prof. Jaehyung Kim</p>
-                <p class="item-date">Sep 2025 — Aug 2026</p>
-              </li>
-
-              <li class="background-item">
-                <p class="item-title">Sogang University</p>
-                <p class="item-meta">B.S. in Computer Science and Engineering</p>
-                <p class="item-date">Mar 2019 — Feb 2025</p>
-              </li>
-            </ul>
-          </div>
-        </div>
+          <li class="entry-item">
+            <p class="entry-title">Sogang University</p>
+            <p class="entry-meta">B.S. in Computer Science and Engineering</p>
+            <p class="entry-date">Mar 2019 — Feb 2025</p>
+          </li>
+        </ul>
       </section>
 
       <section id="service">
         <h2>Honors, Service & Teaching</h2>
+        <ul class="entry-list">
+          <li class="entry-item">
+            <p class="entry-title"><span class="service-label">Honor</span>2nd Place · SmartFactory Anomaly Detection Competition</p>
+            <p class="entry-meta">LG AI Research · Mar 2023</p>
+          </li>
 
-        <div class="service-grid">
-          <div class="service-card">
-            <p class="service-kicker">Honor</p>
-            <p class="service-title">2nd Place · SmartFactory Anomaly Detection Competition</p>
-            <p class="service-meta">LG AI Research · Mar 2023</p>
-          </div>
+          <li class="entry-item">
+            <p class="entry-title"><span class="service-label">Service</span>Conference Reviewer</p>
+            <p class="entry-meta">International Conference on Learning Representations (ICLR) 2027</p>
+          </li>
 
-          <div class="service-card">
-            <p class="service-kicker">Service</p>
-            <p class="service-title">Conference Reviewer</p>
-            <p class="service-meta">International Conference on Learning Representations (ICLR) 2027</p>
-          </div>
-
-          <div class="service-card">
-            <p class="service-kicker">Teaching</p>
-            <p class="service-title">Teaching Assistant · Deep Neural Networks (CAS 3201)</p>
-            <p class="service-meta">Yonsei University · Fall 2025</p>
-          </div>
-        </div>
+          <li class="entry-item">
+            <p class="entry-title"><span class="service-label">Teaching</span>Teaching Assistant · Deep Neural Networks (CAS 3201)</p>
+            <p class="entry-meta">Yonsei University · Fall 2025</p>
+          </li>
+        </ul>
       </section>
     </div>
   </main>
