@@ -1,0 +1,57 @@
+name: Optimize homepage profile
+
+on:
+  push:
+    paths:
+      - ".github/workflows/optimize-profile.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Install Pillow
+        run: python -m pip install --quiet pillow
+
+      - name: Restore source photo and optimize
+        shell: bash
+        run: |
+          set -euo pipefail
+          git show 5aae3d60803028ef38adc4b3de38c204dba6953d:assets/Profile.png > /tmp/Profile.png
+          python - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+
+          source = Image.open("/tmp/Profile.png").convert("RGB")
+          source.thumbnail((480, 640), Image.Resampling.LANCZOS)
+
+          canvas = source
+          out = Path("assets/Profile.webp")
+          canvas.save(out, "WEBP", quality=80, method=6)
+
+          width, height = canvas.size
+          size = out.stat().st_size
+          print(f"Profile.webp: {width}x{height}, {size} bytes")
+          assert width >= 450, (width, height)
+          assert height >= 600, (width, height)
+          assert 30000 <= size <= 200000, size
+          PY
+
+      - name: Commit optimized photo and remove workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "dongseok1220"
+          git config user.email "103242436+dongseok1220@users.noreply.github.com"
+          git rm .github/workflows/optimize-profile.yml
+          git add assets/Profile.webp
+          git commit -m "Improve profile photo quality"
+          git push origin main
