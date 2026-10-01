@@ -289,7 +289,7 @@
 
     .background-grid {
       display: grid;
-      grid-template-columns: 1.15fr 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 42px;
       align-items: start;
     }
@@ -334,8 +334,8 @@
 
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 34px;
+      grid-template-columns: 1fr;
+      gap: 28px;
     }
 
     .service-card {
@@ -386,22 +386,7 @@
       .portrait { width: 170px; }
 
       .background-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .education-column {
-        grid-column: 1 / -1;
-      }
-
-      .education-column .background-list {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 28px;
-      }
-
-      .education-column .background-item {
-        border-top: 0;
-        padding-top: 0;
+        grid-template-columns: 1fr;
       }
     }
 
@@ -437,14 +422,9 @@
       section { padding: 40px 0; }
 
       .background-grid,
-      .education-column .background-list,
       .service-grid {
         grid-template-columns: 1fr;
         gap: 34px;
-      }
-
-      .education-column {
-        grid-column: auto;
       }
 
       .pub-topline {
